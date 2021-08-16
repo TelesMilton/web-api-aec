@@ -9,40 +9,43 @@ using aec_gama_api.Models;
 
 namespace aec_gama_api.Controllers
 {
-    public class CandidatoController : ControllerBase
+    public class CandidatosController : ControllerBase
     {
         private readonly DbContexto _context;
 
-        public CandidatoController(DbContexto context)
+        public CandidatosController(DbContexto context)
         {
             _context = context;
         }
 
-        // GET: Candidato
+        // GET: Candidatos
         public async Task<IActionResult> Index()
         {
+            var DbContexto = _context.Candidatos.Include( c => c.Cep);
             return StatusCode(200, await _context.Candidatos.ToListAsync());
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id_Candidato,Nome,Nascimento,Cep,Logradouro,Numero,Bairro,Cidade,UF,Telefone,Email")] Candidato candidato)
         {
-            _context.Add(candidato);
-            await _context.SaveChangesAsync();
-            return StatusCode(201, candidato);
-
+        
+                _context.Add(candidato);
+                await _context.SaveChangesAsync();
+                return StatusCode(201, candidato);
+                
         }
 
-
         [HttpPut]
-        public async Task<IActionResult> Edit(int Id_Candidato, [Bind("Id_Candidato,Nome,Nascimento,Cep,Logradouro,Numero,Bairro,Cidade,UF,Telefone,Email")] Candidato candidato)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id_Candidato,Nome,Nascimento,Cep,Logradouro,Numero,Bairro,Cidade,UF,Telefone,Email")] Candidato candidato)
         {
             if (id != candidato.Id_Candidato)
             {
                 return NotFound();
             }
-            if (ModelState.IsValid)
+
             {
                 try
                 {
@@ -61,11 +64,13 @@ namespace aec_gama_api.Controllers
                     }
                 }
                 return StatusCode(200, candidato);
-
             }
         }
 
-        private async Task<IActionResult> DeleteConfirmed(int id)
+     
+        [HttpDelete, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var candidato = await _context.Candidatos.FindAsync(id);
             _context.Candidatos.Remove(candidato);

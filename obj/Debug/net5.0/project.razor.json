@@ -15619,53 +15619,28 @@
   "RootNamespace": "aec_gama_api",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Profissao\\Index.cshtml",
-      "TargetPath": "Views\\Profissao\\Index.cshtml",
+      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Candidatos\\Details.cshtml",
+      "TargetPath": "Views\\Candidatos\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Profissao\\Delete.cshtml",
-      "TargetPath": "Views\\Profissao\\Delete.cshtml",
+      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Candidatos\\Delete.cshtml",
+      "TargetPath": "Views\\Candidatos\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Profissao\\Create.cshtml",
-      "TargetPath": "Views\\Profissao\\Create.cshtml",
+      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Candidatos\\Edit.cshtml",
+      "TargetPath": "Views\\Candidatos\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Candidato\\Delete.cshtml",
-      "TargetPath": "Views\\Candidato\\Delete.cshtml",
+      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Candidatos\\Create.cshtml",
+      "TargetPath": "Views\\Candidatos\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Profissao\\Edit.cshtml",
-      "TargetPath": "Views\\Profissao\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Candidato\\Details.cshtml",
-      "TargetPath": "Views\\Candidato\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Candidato\\Create.cshtml",
-      "TargetPath": "Views\\Candidato\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Candidato\\Index.cshtml",
-      "TargetPath": "Views\\Candidato\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Profissao\\Details.cshtml",
-      "TargetPath": "Views\\Profissao\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Candidato\\Edit.cshtml",
-      "TargetPath": "Views\\Candidato\\Edit.cshtml",
+      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Candidatos\\Index.cshtml",
+      "TargetPath": "Views\\Candidatos\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],
