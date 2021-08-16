@@ -10,43 +10,43 @@ using aec_gama_api.Models;
 namespace aec_gama_api.Controllers
 {
      [ApiController]
-    public class CandidatosController : ControllerBase
+    public class ProfissoesController : ControllerBase
     {
         private readonly DbContexto _context;
 
-        public CandidatosController(DbContexto context)
+        public ProfissoesController(DbContexto context)
         {
             _context = context;
         }
 
-        // GET: Candidatos
+        // GET: Profissoes
         [HttpGet]
-        [Route("/candidatos")]
+        [Route("/profissoes")]
         public async Task<IActionResult> Index()
         {
-            var DbContexto = _context.Candidatos;
+            var DbContexto = _context.Profissoes;
             return StatusCode(200, await DbContexto.ToListAsync());
         }
 
 
         [HttpPost]
         
-        [Route("/candidatos")]
-        public async Task<IActionResult> Create([Bind("Id_Candidato,Nome,Nascimento,Cep,Logradouro,Numero,Bairro,Cidade,UF,Telefone,Email")] Candidato candidato)
+        [Route("/profissoes")]
+        public async Task<IActionResult> Create([Bind("Id,Descricao")] Profissao profissao)
         {
         
-                _context.Add(candidato);
+                _context.Add(profissao);
                 await _context.SaveChangesAsync();
-                return StatusCode(201, candidato);
+                return StatusCode(201, profissao);
                 
         }
 
         [HttpPut]
         
-        [Route("/candidatos/{id}")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id_Candidato,Nome,Nascimento,Cep,Logradouro,Numero,Bairro,Cidade,UF,Telefone,Email")] Candidato candidato)
+        [Route("/profissoes/{id}")]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Descricao")] Profissao profissao)
         {
-            if (id != candidato.Id_Candidato)
+            if (id != profissao.Id)
             {
                 return NotFound();
             }
@@ -54,12 +54,12 @@ namespace aec_gama_api.Controllers
             {
                 try
                 {
-                    _context.Update(candidato);
+                    _context.Update(profissao);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CandidatoExists(candidato.Id_Candidato))
+                    if (!ProfissaoExists(profissao.Id))
                     {
                         return NotFound();
                     }
@@ -68,33 +68,33 @@ namespace aec_gama_api.Controllers
                         throw;
                     }
                 }
-                return StatusCode(200, candidato);
+                return StatusCode(200, profissao);
             }
         }
 
      
 
         [HttpGet]
-        [Route("/candidatos/{id}")]
-        public async Task<Candidato> Get(int id)
+        [Route("/profissoes/{id}")]
+        public async Task<Profissao> Get(int id)
         {
-            return await _context.Candidatos.FindAsync(id);       
+            return await _context.Profissoes.FindAsync(id);       
         }
 
         [HttpDelete]
         [ValidateAntiForgeryToken]
-        [Route("/candidatos/{id}")]
+        [Route("/profissoes/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var candidato = await _context.Candidatos.FindAsync(id);
-            _context.Candidatos.Remove(candidato);
+            var profissao = await _context.Profissoes.FindAsync(id);
+            _context.Profissoes.Remove(profissao);
             await _context.SaveChangesAsync();
             return StatusCode(204);
         }
 
-        private bool CandidatoExists(int id)
+        private bool ProfissaoExists(int id)
         {
-            return _context.Candidatos.Any(e => e.Id_Candidato == id);
+            return _context.Profissoes.Any(e => e.Id == id);
         }
     }
 }

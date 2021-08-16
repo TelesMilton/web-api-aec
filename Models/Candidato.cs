@@ -60,8 +60,10 @@ namespace aec_gama_api.Models
     [Column("email", TypeName = "varchar")]
     [MaxLength(10)]
     [Required]
-    public string Email {get; set; }
 
+    
+    public string Email {get; set; }
+    
     
   }
 }

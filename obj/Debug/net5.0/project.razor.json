@@ -15617,32 +15617,6 @@
     "CSharpLanguageVersion": 900
   },
   "RootNamespace": "aec_gama_api",
-  "Documents": [
-    {
-      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Candidatos\\Details.cshtml",
-      "TargetPath": "Views\\Candidatos\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Candidatos\\Delete.cshtml",
-      "TargetPath": "Views\\Candidatos\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Candidatos\\Edit.cshtml",
-      "TargetPath": "Views\\Candidatos\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Candidatos\\Create.cshtml",
-      "TargetPath": "Views\\Candidatos\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\joaon\\aec-gama-api\\Views\\Candidatos\\Index.cshtml",
-      "TargetPath": "Views\\Candidatos\\Index.cshtml",
-      "FileKind": "mvc"
-    }
-  ],
+  "Documents": [],
   "SerializationFormat": "0.2"
 }
