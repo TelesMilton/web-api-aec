@@ -27,13 +27,14 @@ namespace aec_gama_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            Program.ApiHost = Configuration.GetConnectionString("ApiHost");
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<DbContexto>(options => options.UseSqlServer(connectionString));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "aec_gama_api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Cadastro de Curriculo", Version = "v1" });
             });
         }
 
@@ -43,9 +44,12 @@ namespace aec_gama_api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "aec_gama_api v1"));
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "aec_gama_api v1"));
+            app.UseDeveloperExceptionPage();
+
 
             app.UseHttpsRedirection();
 

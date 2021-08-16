@@ -6,7 +6,7 @@ namespace aec_gama_api.Apresentacao
       {
           public string Mensagem
           {
-              get{ return "Olá alunos seja muito bem vindo a minha api";}
+              get{ return "Olá seja muito bem vindo a minha api";}
           }
 
            public List<string> Endpoints
@@ -16,8 +16,8 @@ namespace aec_gama_api.Apresentacao
                  return new List<string>()
              {
                  "/candidatos",
-                 "/profissoes"
-
+                 "/profissoes",
+                 "/swagger"
              };
           }
          }

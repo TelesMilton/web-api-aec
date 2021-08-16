@@ -11,6 +11,7 @@ namespace aec_gama_api
 {
     public class Program
     {
+        public static string ApiHost;
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace aec_gama_api.Models
 {
@@ -63,6 +64,13 @@ namespace aec_gama_api.Models
 
     
     public string Email {get; set; }
+
+    [Column("profissao_id")]
+    [Required]
+    [ForeignKey("ProfissaoID")]
+    [JsonPropertyName("profissao_id")]
+
+    public int ProfissaoID {get;set;}
     
     
   }
