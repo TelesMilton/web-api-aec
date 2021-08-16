@@ -9,6 +9,8 @@ using aec_gama_api.Models;
 
 namespace aec_gama_api.Controllers
 {
+     [ApiController]
+     [Route("[controller]")]
     public class CandidatosController : ControllerBase
     {
         private readonly DbContexto _context;
@@ -21,7 +23,7 @@ namespace aec_gama_api.Controllers
         // GET: Candidatos
         public async Task<IActionResult> Index()
         {
-            var DbContexto = _context.Candidatos.Include( c => c.Cep);
+            var DbContexto = _context.Candidatos;
             return StatusCode(200, await _context.Candidatos.ToListAsync());
         }
 
