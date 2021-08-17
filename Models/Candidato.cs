@@ -33,7 +33,7 @@ namespace aec_gama_api.Models
     public string Logradouro {get; set; }
 
     [Column("numero", TypeName = "varchar")]
-    [MaxLength(5)]
+    [MaxLength(10)]
     [Required]
     public string Numero {get; set; }
 
@@ -48,7 +48,7 @@ namespace aec_gama_api.Models
     public string Cidade {get; set; }
 
     [Column("uf", TypeName = "varchar")]
-    [MaxLength(2)]
+    [MaxLength(10)]
     [Required]
     public string UF {get; set; }
 
@@ -71,6 +71,7 @@ namespace aec_gama_api.Models
     [JsonPropertyName("profissao_id")]
 
     public int ProfissaoID {get;set;}
+
     
     
   }

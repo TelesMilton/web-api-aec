@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace aec_gama_api.Migrations
 {
     [DbContext(typeof(DbContexto))]
-    [Migration("20210815185034_projetoAec")]
-    partial class projetoAec
+    [Migration("20210817233129_ProjetoAEC")]
+    partial class ProjetoAEC
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,9 +70,13 @@ namespace aec_gama_api.Migrations
 
                     b.Property<string>("Numero")
                         .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("varchar(5)")
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
                         .HasColumnName("numero");
+
+                    b.Property<int>("ProfissaoID")
+                        .HasColumnType("int")
+                        .HasColumnName("profissao_id");
 
                     b.Property<string>("Telefone")
                         .IsRequired()
@@ -82,11 +86,13 @@ namespace aec_gama_api.Migrations
 
                     b.Property<string>("UF")
                         .IsRequired()
-                        .HasMaxLength(2)
-                        .HasColumnType("varchar(2)")
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
                         .HasColumnName("uf");
 
                     b.HasKey("Id_Candidato");
+
+                    b.HasIndex("ProfissaoID");
 
                     b.ToTable("candidatos");
                 });
@@ -108,6 +114,20 @@ namespace aec_gama_api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("profissoes");
+                });
+
+            modelBuilder.Entity("aec_gama_api.Models.Candidato", b =>
+                {
+                    b.HasOne("aec_gama_api.Models.Profissao", null)
+                        .WithMany("candidatos")
+                        .HasForeignKey("ProfissaoID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("aec_gama_api.Models.Profissao", b =>
+                {
+                    b.Navigation("candidatos");
                 });
 #pragma warning restore 612, 618
         }

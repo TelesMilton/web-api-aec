@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,7 +16,8 @@ namespace aec_gama_api.Models
         [Required]
 
         public string Descricao{get; set;}
-        
 
+        public ICollection <Candidato> candidatos {get; set;} 
+        
     }
 }

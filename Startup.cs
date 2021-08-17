@@ -28,6 +28,7 @@ namespace aec_gama_api
         public void ConfigureServices(IServiceCollection services)
         {
             Program.ApiHost = Configuration.GetConnectionString("ApiHost");
+           // string.Format(Program.ApiHost, Candidato.cep);
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<DbContexto>(options => options.UseSqlServer(connectionString));
 

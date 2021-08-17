@@ -34,6 +34,13 @@ namespace aec_gama_api.Controllers
         [Route("/profissoes")]
         public async Task<IActionResult> Create([Bind("Id,Descricao")] Profissao profissao)
         {
+
+                if(_context.Profissoes.Where(p => p.Descricao == profissao.Descricao).Count()> 0)
+                {
+                    return StatusCode(400, new {
+                        Mensagem = $"já existe uma profissão criada com o nome {profissao.Descricao}"
+                    });
+                }
         
                 _context.Add(profissao);
                 await _context.SaveChangesAsync();
